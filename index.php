@@ -1,44 +1,69 @@
 <?php 
+
+require_once __DIR__ . "./data/db.php";
+
+// class Genre {
+//     public $type;
+    
+//     // constructor
+//     function __construct (
+//         $_type,
+//     )
+//     {
+//         $this->type = $_type;
+//     }
+//  }
 class Movie {
     public $title;
     public $year;
     public $genre;
 
     // constructor
-    function __construct( $_title, $_year, $_genre) {
+    function __construct( 
+        string $_title, 
+        int $_year, 
+        string $_genre
+        // Genre $genre
+        
+    ) 
+    {
         $this->title = $_title;
         $this->year = $_year;
         $this->genre = $_genre;
+        
     }
 
-    // method
+    // methods
     public function getTitle() {
     return $this->title;
-  }
-  public function getYear() {
+    }
+    public function getYear() {
     return $this->year;
-  }
-  public function getGenre() {
+    }
+    public function getGenre() {
     return $this->genre;
-  }
+    }
 
    
 
 }
-
- //   objects
-    $film_1 = new Movie ("Ritorno al futuro", "1985", "Comedy");
-    $film_2 = new Movie ("Avatar", "2009", "Science fiction");
-
-    echo $film_1->getTitle(); 
-    echo "\n";
-    echo $film_1->getYear();
-    echo "\n";
-    echo $film_1->getGenre();
-    echo "<br>";
-    echo $film_2->getTitle();
-    echo "\n";
-    echo $film_2->getYear();
-    echo "\n";    
-    echo $film_2->getGenre();
+    // var_dump($array_movies);
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOP</title>
+</head>
+
+<body>
+    <?php foreach($array_movies as $movie) : ?>
+    <?php include __DIR__ . "/template/movieList.php" ?>
+    <?php endforeach; ?>
+</body>
+
+</html>
